@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
   kind: TriggerBinding
   metadata:
-    name: hello-goodbye-trigger-binding
+    name: cd-binding
     spec:
       params:
         - name: somekey

@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
   kind: TriggerTemplate
   metadata:
-    name: hello-goodbye-trigger-template
+    name: cd-template
   spec:
     params:
       - name: somekey
