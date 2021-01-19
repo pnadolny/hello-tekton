@@ -1,81 +1,77 @@
-- apiVersion: tekton.dev/v1beta1
-  kind: Pipeline
-  metadata:
-    name: hello-goodbye-pipeline
-  spec:
-    tasks:
-    - name: hello
-      taskRef:
-        name: hello
-    - name: goodbye
-      runAfter:
-      - hello
-      taskRef:
-        name: goodbye
-
-- apiVersion: tekton.dev/v1beta1
-  kind: Task
-  metadata:
-    name: hello
-  spec:
-    steps:
+  - apiVersion: tekton.dev/v1beta1
+    kind: Pipeline
+    metadata:
+      name: hello-goodbye-pipeline
+    spec:
+      tasks:
       - name: hello
-        image: ubuntu
-        command:
-          - echo
-        args:
-          - "Hello World!"
-          -
-- apiVersion: tekton.dev/v1beta1
-  kind: Task
-  metadata:
-    name: goodbye
-  spec:
-    steps:
+        taskRef:
+          name: hello
       - name: goodbye
-        image: ubuntu
-        script: |
-          #!/bin/bash
-          echo "Ok...ready..set...go"
-          echo "Goodbye World!"
+        runAfter:
+        - hello
+        taskRef:
+          name: goodbye
+  - apiVersion: tekton.dev/v1beta1
+    kind: Task
+    metadata:
+      name: hello
+    spec:
+      steps:
+        - name: hello
+          image: ubuntu
+          command:
+            - echo
+          args:
+            - "Hello World!"
+  - apiVersion: tekton.dev/v1beta1
+    kind: Task
+    metadata:
+      name: goodbye
+    spec:
+      steps:
+        - name: goodbye
+          image: ubuntu
+          script: |
+            #!/bin/bash
+            echo "Ok...ready..set...go"
+            echo "Goodbye World!"
 
-- apiVersion: tekton.dev/v1beta1
-  kind: TriggerBinding
-  metadata:
-    name: hello-goodbye-trigger-binding
-  spec:
-    params:
-      - name: somekey
-        value: $(event.somekey)
-
-- apiVersion: tekton.dev/v1beta1
-  kind: TriggerTemplate
-  metadata:
-    name: hello-goodbye-trigger-template
-  spec:
-    params:
-      - name: somekey
-        description: Some Key
-    resourcetemplates:
-      - apiVersion: v1
-        kind: PersistentVolumeClaim
-        metadata:
-          name: pipelinerun-pvc
-        spec:
-          resources:
-            requests:
-              storage: 5Gi
-          volumeMode: Filesystem
-          accessModes:
-            - ReadWriteOnce
-
-- apiVersion: tekton.dev/v1beta1
-  kind: EventListener
-  metadata:
-    name: hello-tekton-listener
-  spec:
-    triggers:
-      - bindings:
-          - ref: hello-goodbye-trigger-binding
-        template:
-          ref: hello-goodbye-trigger-template
+  - apiVersion: tekton.dev/v1beta1
+    kind: TriggerBinding
+    metadata:
+      name: hello-goodbye-trigger-binding
+    spec:
+      params:
+        - name: somekey
+          value: $(event.somekey)
+  - apiVersion: tekton.dev/v1beta1
+    kind: TriggerTemplate
+    metadata:
+      name: hello-goodbye-trigger-template
+    spec:
+      params:
+        - name: somekey
+          description: Some Key
+      resourcetemplates:
+        - apiVersion: v1
+          kind: PersistentVolumeClaim
+          metadata:
+            name: pipelinerun-pvc
+          spec:
+            resources:
+              requests:
+                storage: 5Gi
+            volumeMode: Filesystem
+            accessModes:
+              - ReadWriteOnce
+  - apiVersion: tekton.dev/v1beta1
+    kind: EventListener
+    metadata:
+      name: hello-tekton-listener
+    spec:
+      triggers:
+        - bindings:
+            - ref: hello-goodbye-trigger-binding
+          template:
+            ref: hello-goodbye-trigger-template
