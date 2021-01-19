@@ -5,10 +5,10 @@ metadata:
 spec:
   tasks:
     - name: hello
-        taskRef:
-          name: hello
+      taskRef:
+        name: hello
     - name: goodbye
-        runAfter:
-          - hello
-        taskRef:
-          name: goodbye
+      runAfter:
+        - hello
+      taskRef:
+        name: goodbye
