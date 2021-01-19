@@ -1,8 +1,0 @@
-apiVersion: tekton.dev/v1beta1
-kind: TriggerBinding
-metadata:
-  name: hello-goodbye-trigger-binding
-spec:
-  params:
-    - name: somekey
-      value: $(event.somekey)
