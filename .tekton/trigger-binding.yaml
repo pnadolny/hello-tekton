@@ -1,8 +1,8 @@
 apiVersion: tekton.dev/v1beta1
-  kind: TriggerBinding
+kind: TriggerBinding
   metadata:
     name: cd-binding
-    spec:
-      params:
-        - name: somekey
-          value: $(event.somekey)
+spec:
+  params:
+  - name: somekey
+    value: $(event.somekey)

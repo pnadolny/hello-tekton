@@ -1,8 +1,8 @@
 apiVersion: tekton.dev/v1beta1
-  kind: Task
+kind: Task
   metadata:
     name: hello
-  spec:
+spec:
     steps:
       - name: hello
         image: ubuntu
