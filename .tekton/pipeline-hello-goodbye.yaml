@@ -1,4 +1,4 @@
-  - apiVersion: tekton.dev/v1beta1
+- apiVersion: tekton.dev/v1beta1
     kind: Pipeline
     metadata:
       name: hello-goodbye-pipeline
@@ -12,7 +12,7 @@
         - hello
         taskRef:
           name: goodbye
-  - apiVersion: tekton.dev/v1beta1
+- apiVersion: tekton.dev/v1beta1
     kind: Task
     metadata:
       name: hello
@@ -24,7 +24,7 @@
             - echo
           args:
             - "Hello World!"
-  - apiVersion: tekton.dev/v1beta1
+- apiVersion: tekton.dev/v1beta1
     kind: Task
     metadata:
       name: goodbye
@@ -37,7 +37,7 @@
             echo "Ok...ready..set...go"
             echo "Goodbye World!"
 
-  - apiVersion: tekton.dev/v1beta1
+- apiVersion: tekton.dev/v1beta1
     kind: TriggerBinding
     metadata:
       name: hello-goodbye-trigger-binding
@@ -65,7 +65,7 @@
             volumeMode: Filesystem
             accessModes:
               - ReadWriteOnce
-  - apiVersion: tekton.dev/v1beta1
+- apiVersion: tekton.dev/v1beta1
     kind: EventListener
     metadata:
       name: hello-tekton-listener
