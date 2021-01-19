@@ -1,10 +1,10 @@
 apiVersion: tekton.dev/v1beta1
 kind: EventListener
-  metadata:
+metadata:
   name: cd-listener
-  spec:
-    triggers:
-      - binding:
-          name: cd-binding
-        template:
-          name: cd-template
+spec:
+  triggers:
+    - binding:
+        name: cd-binding
+      template:
+        name: cd-template
