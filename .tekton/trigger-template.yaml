@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: TriggerTemplate
-  metadata:
-    name: cd-template
+metadata:
+  name: cd-template
 spec:
   params:
     - name: somekey
