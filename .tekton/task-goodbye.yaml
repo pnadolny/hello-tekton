@@ -3,10 +3,10 @@ kind: Task
   metadata:
     name: goodbye
 spec:
-    steps:
-      - name: goodbye
-          image: ubuntu
-        script: |
-            #!/bin/bash
-            echo "Ok...ready..set...go"
-            echo "Goodbye World!"
+  steps:
+    - name: goodbye
+        image: ubuntu
+      script: |
+        #!/bin/bash
+        echo "Ok...ready..set...go"
+        echo "Goodbye World!"

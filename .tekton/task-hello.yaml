@@ -3,10 +3,10 @@ kind: Task
   metadata:
     name: hello
 spec:
-    steps:
-      - name: hello
-        image: ubuntu
-        command:
-          - echo
-        args:
-          - "Hello World!"
+  steps:
+    - name: hello
+      image: ubuntu
+      command:
+        - echo
+      args:
+        - "Hello World!"
