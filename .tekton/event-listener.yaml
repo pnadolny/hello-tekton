@@ -1,0 +1,10 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: hello-tekton-listener
+spec:
+  triggers:
+    - bindings:
+        - ref: hello-goodbye-trigger-binding
+      template:
+        ref: hello-goodbye-trigger-template

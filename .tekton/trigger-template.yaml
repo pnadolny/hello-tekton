@@ -1,0 +1,8 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  name: hello-goodbye-trigger-template
+spec:
+  params:
+    - name: somekey
+      description: Some Key
