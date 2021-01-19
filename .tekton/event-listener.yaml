@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
-  kind: EventListener
+kind: EventListener
   metadata:
-    name: cd-listener
+  name: cd-listener
   spec:
     triggers:
       - binding:
