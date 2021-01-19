@@ -5,7 +5,7 @@ metadata:
 spec:
   steps:
     - name: goodbye
-        image: ubuntu
+      image: ubuntu
       script: |
         #!/bin/bash
         echo "Ok...ready..set...go"
