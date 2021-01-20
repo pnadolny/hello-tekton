@@ -5,7 +5,7 @@ metadata:
 spec:
   steps:
     - name: hello
-      image: alpine/git:v2.26.2
+      image: alpine
       command:
         - echo
       args:

@@ -5,7 +5,7 @@ metadata:
 spec:
   steps:
     - name: goodbye
-      image: alpine/git:v2.26.2
+      image: alpine
       script: |
         #!/bin/bash
         echo "Ok...ready..set...go"
