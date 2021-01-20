@@ -2,16 +2,3 @@ apiVersion: tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
   name: cd-template
-spec:
-  resourcetemplates:
-    - apiVersion: v1
-      kind: PersistentVolumeClaim
-      metadata:
-        name: pipelinerun-pvc
-      spec:
-        resources:
-          requests:
-            storage: 5Gi
-        volumeMode: Filesystem
-        accessModes:
-          - ReadWriteOnce
